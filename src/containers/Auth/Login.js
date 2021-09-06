@@ -39,8 +39,9 @@ class Login extends Component {
         try {
             const data = await userService.handleLogin(this.state.userName, this.state.password)
             if (data && data.errCode !== 0) {
+
                 this.setState({
-                    errMessage: data.message,
+                    errMessage: data.errMessage,
                 })
             }
             if (data && data.errCode === 0) {
@@ -51,7 +52,7 @@ class Login extends Component {
             if (error.response) {
                 if (error.response.data) {
                     this.setState({
-                        errMessage: error.response.data.message,
+                        errMessage: error.response.data.errMessage,
                     })
                 }
             }
@@ -60,7 +61,6 @@ class Login extends Component {
     }
     //handle event onClick show password
     handleOnShowHidePassword = () => {
-        console.log(!this.state.isShowPassword)
         this.setState({
             ...this.state,
             isShowPassword: !this.state.isShowPassword
