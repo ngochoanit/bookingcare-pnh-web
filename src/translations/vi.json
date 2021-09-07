@@ -10,6 +10,17 @@
         "check-health": "Khám Sức Khỏe Tổng Quát",
         "support": "Hỗ Trợ"
     },
+    "banner": {
+        "title1": "Nền Tảng Sức Khỏe",
+        "title2": "Chăm sóc sức khỏe toàn diện",
+        "placeholder": "Tìm Chuyên Khoa Khám Bệnh",
+        "child1": "Khám Chuyên Khoa",
+        "child2": "Khám Từ Xa",
+        "child3": "Khám Tổng Quát",
+        "child4": "Xét Nghiệm Y Học",
+        "child5": "Sức Khỏe Tinh Thần",
+        "child6": "Khám Nha Khoa"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",

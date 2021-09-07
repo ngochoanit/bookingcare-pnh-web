@@ -10,6 +10,17 @@
         "check-health": "General Health Checkup",
         "support": "Support"
     },
+    "banner": {
+        "title1": "Health Foundation",
+        "title2": "Comprehensive Health Care",
+        "placeholder": "Find a Medical Specialty",
+        "child1": "Special Examination",
+        "child2": "Remote Examination",
+        "child3": "General Examination",
+        "child4": "Medical Test",
+        "child5": "Mental Health",
+        "child6": "Dental Examination"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",
