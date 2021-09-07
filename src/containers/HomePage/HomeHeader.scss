@@ -64,17 +64,22 @@
 
             .language-vi {
                 cursor: pointer;
+                text-transform: uppercase;
+                opacity: 0.2;
             }
 
             .language-en {
                 cursor: pointer;
                 margin: 0 10px;
+                text-transform: uppercase;
+                opacity: 0.2;
             }
 
             .language-vi,
             .language-en {
                 &.active {
                     color: #F7D800;
+                    opacity: 1;
                 }
             }
         }
