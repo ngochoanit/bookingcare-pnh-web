@@ -29,10 +29,12 @@ class HomeHeader extends Component {
                             <div className="child-content">
                                 <div><b><FormattedMessage id="home-header.health-facility" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="home-header.select-room" /></div>
-                            </div><div className="child-content">
+                            </div>
+                            <div className="child-content">
                                 <div><b><FormattedMessage id="home-header.doctor" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="home-header.select-doctor" /></div>
-                            </div><div className="child-content">
+                            </div>
+                            <div className="child-content">
                                 <div><b><FormattedMessage id="home-header.fee" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="home-header.check-health" /></div>
                             </div>
@@ -86,8 +88,7 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 
