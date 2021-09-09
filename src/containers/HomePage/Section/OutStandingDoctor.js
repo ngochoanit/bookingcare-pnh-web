@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl'
-import { changeLanguageApp } from '../../../store/actions';
 import Slider from "react-slick";
-import './Specialty.scss'
+import './OutStandingDoctor.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import specialtyImg from "../../../assets/specialty/Noi-soi-tieu-hoa.jpg"
-
-class Specialty extends Component {
+class OutStandingDoctor extends Component {
 
     render() {
         const settings = this.props.settings;
         return (
-            <section className="section-share section-specialty" >
+            <section className="section-share section-outstanding-doctor" >
                 <div className="section-container">
                     <div className="section-header">
-                        <span className="section-title">Chuyên Khoa Phổ Biến</span>
+                        <span className="section-title">Bác Sĩ Nổi Bật Tuần Qua</span>
                         <button className="section-btn">Xem Thêm</button>
                     </div>
                     <div className="section-body">
@@ -24,39 +20,40 @@ class Specialty extends Component {
                             <div className="section-customize">
                                 <div className="section-customize-container">
                                     <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Nội Soi Tiêu Hóa 1</div>
+                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
                                 </div>
-
                             </div>
                             <div className="section-customize">
                                 <div className="section-customize-container">
                                     <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Nội Soi Tiêu Hóa 1</div>
+                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
+                                    <div className="section-customize-specialty">Nam Học</div>
                                 </div>
-
                             </div>
                             <div className="section-customize">
                                 <div className="section-customize-container">
                                     <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Nội Soi Tiêu Hóa 1</div>
+                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
                                 </div>
-
                             </div>
                             <div className="section-customize">
                                 <div className="section-customize-container">
                                     <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Nội Soi Tiêu Hóa 1</div>
+                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
                                 </div>
-
                             </div>
                             <div className="section-customize">
                                 <div className="section-customize-container">
                                     <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Nội Soi Tiêu Hóa 1</div>
+                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
                                 </div>
-
                             </div>
-
+                            <div className="section-customize">
+                                <div className="section-customize-container">
+                                    <div className="bg-image"  ></div>
+                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
+                                </div>
+                            </div>
                         </Slider>
                     </div>
                 </div>
@@ -68,15 +65,13 @@ class Specialty extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn,
-        language: state.app.language,
+        isLoggedIn: state.user.isLoggedIn
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor);
