@@ -1,0 +1,47 @@
+.section-share {
+
+    &.section-about {
+        background-color: #f5f5f5;
+
+        .section-container {
+            .section-about-header {
+                height: 60px;
+                margin-bottom: 10px;
+                padding-top: 20px;
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .section-about-content {
+                display: flex;
+                padding-bottom: 30px;
+
+                .section-about-content-left {
+                    flex: 1;
+                    padding-top: 28.125%;
+                    position: relative;
+
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                }
+
+                .section-about-content-right {
+                    flex: 1;
+
+                    p {
+                        text-align: justify;
+                        font-style: italic;
+                        font-size: 16px;
+                        padding-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.section-share {
+
+    &.section-hand-book {
+        background-color: #fff;
+
+        .section-container {
+
+            .section-body {
+                .section-customize {
+                    .section-customize-container {
+                        display: flex;
+                        flex-direction: row;
+
+                        .bg-image {
+                            flex: 1;
+                            height: 200px !important;
+                            background-image: url('../../../assets/hand-book/cam-nang.jpg');
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            border: 1px solid #ccc;
+                        }
+
+                        .section-customize-title {
+                            padding: 5px 15px;
+                            flex: 1;
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

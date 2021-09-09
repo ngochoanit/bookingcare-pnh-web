@@ -1,0 +1,102 @@
+.slick-prev,
+.slick-next {
+    z-index: 1000 !important;
+    opacity: 0.9 !important;
+    width: 48px !important;
+    height: 50px !important;
+    border: 1px solid #D7D7D7 !important;
+    background-color: #FFFFFF !important;
+    display: block !important;
+    cursor: pointer !important;
+    color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    opacity: 1 !important;
+}
+
+.slick-prev {
+    left: -20px !important;
+}
+
+.slick-next {
+    right: -20px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-style: normal !important;
+    font-weight: 400 !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+    padding: 10px !important;
+    text-align: center !important;
+    color: #959595 !important;
+}
+
+.section-share {
+    .section-container {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            display: flex;
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            .section-title {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .section-btn {
+
+                padding: 10px 15px;
+                border: none;
+                display: block;
+                outline: none;
+                background-color: #ebebeb;
+                color: #000000;
+                cursor: pointer;
+                text-transform: uppercase;
+
+                &:hover {
+                    background: #f7d800
+                }
+            }
+        }
+
+        .section-body {
+            margin: 0 -5px;
+            padding-bottom: 20px;
+
+            .section-customize {
+                margin: 0 0px;
+
+                &:hover {
+                    color: #45c3d2;
+                }
+
+                .section-customize-container {
+                    margin: 0 5px;
+
+                    .section-customize-title {
+                        padding: 4px 0px;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
