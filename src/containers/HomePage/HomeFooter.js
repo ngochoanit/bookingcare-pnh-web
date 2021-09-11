@@ -6,7 +6,7 @@ class HomeFooter extends Component {
     render() {
         return (
             <section className="home-footer" >
-                <p>&copy; 2021 BookingCare Clone. More Information, please contact <a target="_blank" without rel="noreferrer" href='https://www.facebook.com/pnh.it/'>Phạm Ngọc Hoàn</a></p>
+                <p>&copy; 2021 BookingCare Clone. More Information, please contact <a target="_blank" without='true' rel="noreferrer" href='https://www.facebook.com/pnh.it/'>Phạm Ngọc Hoàn</a></p>
             </section>
         );
     }
