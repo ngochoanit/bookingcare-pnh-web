@@ -19,6 +19,7 @@ class HomePage extends Component {
             slidesToShow: 4,
             slidesToScroll: 1,
         };
+        console.log('homePage')
         return (
             <div>
                 <HomeHeader />
