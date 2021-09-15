@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl'
 import { changeLanguageApp } from '../../../store/actions';
 import Slider from "react-slick";
 import './Specialty.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import specialtyImg from "../../../assets/specialty/Noi-soi-tieu-hoa.jpg"
 
 class Specialty extends Component {
 
