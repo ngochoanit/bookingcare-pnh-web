@@ -50,7 +50,7 @@ class UserManage extends Component {
     }
     //handle get all users
     getAllUsers = async () => {
-        const response = await userService.getAllUsers('ALL')
+        const response = await userService.getAllUsersService('ALL')
         if (response && response.errCode === 0) {
             this.setState({
                 ...this.state,
@@ -61,7 +61,7 @@ class UserManage extends Component {
     //handle delete user
     handleDeleteUser = async (user) => {
         try {
-            const response = await userService.deleteUser(user.id)
+            const response = await userService.deleteUserService(user.id)
             if (response && response.errCode === 0) {
                 await this.getAllUsers()
             }
