@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../../store/actions'
 
 import { LANGUAGES, CRUD_ACTIONS } from '../../../utils/constant'
+import CommonUtils from '../../../utils/CommonUtils'
 
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
@@ -24,8 +25,8 @@ class UserRedux extends Component {
 
             isOpen: false,
             action: "",
-            userEditId: "",
 
+            id: "",
             email: "",
             password: "",
             firstName: "",
@@ -69,10 +70,12 @@ class UserRedux extends Component {
             })
         }
         if (prevProps.usersRedux !== this.props.usersRedux) {
+            console.log('reset list')
             const genderArr = this.props.genderRedux
             const positionArr = this.props.positionRedux
             const roleArr = this.props.roleRedux
             this.setState({
+                id: "",
                 email: "",
                 password: "",
                 firstName: "",
@@ -83,19 +86,22 @@ class UserRedux extends Component {
                 gender: genderArr && genderArr.length > 0 ? genderArr[0].key : '',
                 positionId: positionArr && positionArr.length > 0 ? positionArr[0].key : '',
                 roleId: roleArr && roleArr.length > 0 ? roleArr[0].key : "",
-                action: CRUD_ACTIONS.CREATE
-            })
+                action: CRUD_ACTIONS.CREATE,
+                previewImgURL: ""
+            }, () => { console.log("change list user redux", this.state) })
         }
     }
     //handle onchange image
-    handleOnchangeImage = (event,) => {
+    handleOnchangeImage = async (event) => {
+        console.log(event)
         const file = event.target.files[0]
         if (file) {
-            const objUrl = URL.createObjectURL(file)
+            const base64 = await CommonUtils.getBase64(file)
+            event.target.value = ""
             this.setState({
-                previewImgURL: objUrl,
-                image: file
-            })
+                previewImgURL: base64,
+                image: base64
+            }, () => { console.log("change image", this.state) })
 
         }
     }
@@ -127,7 +133,8 @@ class UserRedux extends Component {
                     address: this.state.address,
                     gender: this.state.gender,
                     positionId: this.state.positionId,
-                    roleId: this.state.roleId
+                    roleId: this.state.roleId,
+                    image: this.state.image
                 }
             )
         }
@@ -141,7 +148,8 @@ class UserRedux extends Component {
                 address: this.state.address,
                 gender: this.state.gender,
                 positionId: this.state.positionId,
-                roleId: this.state.roleId
+                roleId: this.state.roleId,
+                image: this.state.image
             })
         }
     }
@@ -169,11 +177,17 @@ class UserRedux extends Component {
     }
     //handle edit usser form parent
     handleEditUserFromParent = (user) => {
+        let imageBase64 = ""
+        if (user.image) {
+            imageBase64 = new Buffer(user.image, 'base64').toString('binary')
+        }
         this.setState({
             ...user,
+            image: imageBase64,
+            previewImgURL: imageBase64,
             password: "123456789",
             action: CRUD_ACTIONS.EDIT
-        }, () => { console.log(this.state) })
+        }, () => { console.log("User edit", this.state) })
     }
     render() {
         const genders = this.state.genderArr
