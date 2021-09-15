@@ -82,7 +82,7 @@ class UserManage extends Component {
     //handle edit user
     editUser = async (user) => {
         try {
-            const response = await userService.editUser(user)
+            const response = await userService.editUserService(user)
             if (response && response.errCode === 0) {
                 await this.getAllUsers()
                 this.setState({

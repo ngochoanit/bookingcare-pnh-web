@@ -39,6 +39,8 @@
     },
     "manage-user": {
         "add": "Thêm Mới",
+        "edit": "Lưu Thay Đổi",
+        "save": "Lưu User",
         "email": "Email",
         "password": "Mật Khẩu",
         "firstName": "Tên",
@@ -48,7 +50,6 @@
         "gender": "Giới Tính",
         "position": "Chức Danh",
         "role": "Vai Trò",
-        "image": "Ảnh Đại Diện",
-        "save": "Lưu User"
+        "image": "Ảnh Đại Diện"
     }
 }

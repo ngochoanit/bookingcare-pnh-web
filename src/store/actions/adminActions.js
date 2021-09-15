@@ -111,7 +111,7 @@ export const createNewUser = (data) => {
     }
 }
 export const saveUserSuccess = () => ({
-    type: actionTypes.CREATE_USER_SUCCESS
+    type: actionTypes.CREATE_USER_SUCCESSED
 })
 export const saveUserFailed = () => ({
     type: actionTypes.CREATE_USER_FAILED
@@ -139,12 +139,39 @@ export const deleteUser = (data) => {
     }
 }
 export const deleteUserSuccess = () => ({
-    type: actionTypes.DELETE_USER_SUCCESS
+    type: actionTypes.DELETE_USER_SUCCESSED
 })
 export const deleteUserFailed = () => ({
     type: actionTypes.DELETE_USER_FAILED
 })
 
+//EDIT user
+export const editUser = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.editUserService(data);
+            if (res && res.errCode === 0) {
+                toast.success("Edit user successed");
+                dispatch(editUserSuccess())
+                dispatch(fetchAllUsersStart())
+            }
+            else {
+                toast.error("Ddit user failed");
+                dispatch(editUserFailed())
+            }
+        }
+        catch (e) {
+            dispatch(editUserFailed())
+            console.log("editUserFailed", e)
+        }
+    }
+}
+export const editUserSuccess = () => ({
+    type: actionTypes.EDIT_USER_SUCCESSED
+})
+export const editUserFailed = () => ({
+    type: actionTypes.EDIT_USER_FAILED
+})
 //Fetch all user
 export const fetchAllUsersStart = () => {
     return async (dispatch, getState) => {

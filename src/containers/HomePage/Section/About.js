@@ -4,7 +4,6 @@ import './About.scss'
 class About extends Component {
 
     render() {
-        const settings = { ...this.props.settings, slidesToShow: 2 };
 
         return (
             <section className="section-share section-about" >

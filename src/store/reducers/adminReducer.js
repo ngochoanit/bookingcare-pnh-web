@@ -1,11 +1,10 @@
 import actionTypes from '../actions/actionTypes';
-import { userService } from '../../services/userService'
-const initContentOfConfirmModal = {
-    isOpen: false,
-    messageId: "",
-    handleFunc: null,
-    dataFunc: null
-}
+// const initContentOfConfirmModal = {
+//     isOpen: false,
+//     messageId: "",
+//     handleFunc: null,
+//     dataFunc: null
+// }
 
 const initialState = {
     isLoadingGender: false,
