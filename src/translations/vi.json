@@ -1,7 +1,7 @@
 {
     "home-header": {
         "specialist": "Chuyên Khoa",
-        "search-docter": "Tìm Bác Sĩ Theo Chuyên Khoa",
+        "search-doctor": "Tìm Bác Sĩ Theo Chuyên Khoa",
         "health-facility": "Cơ Sở Y Tế",
         "select-room": "Chọn bệnh viện phòng khám",
         "doctor": "Bác Sĩ",
@@ -12,7 +12,7 @@
         "welcome": " Xin Chào "
     },
     "banner": {
-        "title1": "Nền Tảng Sức Khỏe",
+        "title1": "Nền Tảng Y Tế",
         "title2": "Chăm sóc sức khỏe toàn diện",
         "placeholder": "Tìm Chuyên Khoa Khám Bệnh",
         "child1": "Khám Chuyên Khoa",
@@ -51,5 +51,9 @@
         "position": "Chức Danh",
         "role": "Vai Trò",
         "image": "Ảnh Đại Diện"
+    },
+    "home-page": {
+        "outstanding-doctor": "Bác Sĩ Nổi Bật Tuần Qua",
+        "more-infor": "Xem Thêm"
     }
 }

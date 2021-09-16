@@ -1,7 +1,7 @@
 {
     "home-header": {
         "specialist": "Specialist",
-        "search-docter": "Find a Doctor by Specialty",
+        "search-doctor": "Find a Doctor by Specialty",
         "health-facility": "Health Facility",
         "select-room": "Select clinic hospital",
         "doctor": "Doctor",
@@ -12,7 +12,7 @@
         "welcome": " Welcome "
     },
     "banner": {
-        "title1": "Health Foundation",
+        "title1": "Medical Platform",
         "title2": "Comprehensive Health Care",
         "placeholder": "Find a Medical Specialty",
         "child1": "Special Examination",
@@ -51,5 +51,9 @@
         "position": "Porsition",
         "role": "Role",
         "image": "Avatar"
+    },
+    "home-page": {
+        "outstanding-doctor": "Last Week's Featured Doctor",
+        "more-infor": "More Infor"
     }
 }

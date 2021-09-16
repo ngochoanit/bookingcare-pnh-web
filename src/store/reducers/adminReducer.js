@@ -11,7 +11,8 @@ const initialState = {
     genders: [],
     roles: [],
     positions: [],
-    users: []
+    users: [],
+    topDoctors: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -29,7 +30,6 @@ const adminReducer = (state = initialState, action) => {
                 isLoadingGender: false
             }
         case actionTypes.FETCH_GENDER_FAILED:
-            console.log("FETCH_GENDER_FAILED")
             return {
                 ...state,
                 isLoadingGender: false
@@ -57,6 +57,14 @@ const adminReducer = (state = initialState, action) => {
                 users: action.data,
             }
         case actionTypes.FETCH_ALL_USERS_FAILED:
+            return state
+        //fet top doctor 
+        case actionTypes.FETCH_TOP_DOCTORS_SUCCESSED:
+            return {
+                ...state,
+                topDoctors: action.data
+            }
+        case actionTypes.FETCH_TOP_DOCTORS_FAILED:
             return state
 
         default:
