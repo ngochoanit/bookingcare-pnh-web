@@ -1,59 +1,68 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { LANGUAGES } from '../../../utils/constant'
+
+import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
-import './OutStandingDoctor.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-class OutStandingDoctor extends Component {
+import * as actions from '../../../store/actions'
 
+import './OutStandingDoctor.scss'
+class OutStandingDoctor extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            arrDocs: [],
+        }
+    }
+    componentDidMount() {
+        this.props.loadTopDoctors()
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.topDoctorsRedux !== this.props.topDoctorsRedux) {
+            this.setState({
+                arrDocs: this.props.topDoctorsRedux
+            })
+        }
+    }
     render() {
         const settings = this.props.settings;
+        const arrDocs = this.state.arrDocs;
+        const { language } = this.props
         return (
             <section className="section-share section-outstanding-doctor" >
                 <div className="section-container">
                     <div className="section-header">
-                        <span className="section-title">Bác Sĩ Nổi Bật Tuần Qua</span>
-                        <button className="section-btn">Xem Thêm</button>
+                        <span className="section-title">
+                            <FormattedMessage id="home-page.outstanding-doctor" />
+                        </span>
+                        <button className="section-btn">
+                            <FormattedMessage id="home-page.more-infor" />
+                        </button>
                     </div>
                     <div className="section-body">
                         <Slider {...settings}>
-                            <div className="section-customize">
-                                <div className="section-customize-container">
-                                    <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
-                                </div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="section-customize-container">
-                                    <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
-                                    <div className="section-customize-specialty">Nam Học</div>
-                                </div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="section-customize-container">
-                                    <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
-                                </div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="section-customize-container">
-                                    <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
-                                </div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="section-customize-container">
-                                    <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
-                                </div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="section-customize-container">
-                                    <div className="bg-image"  ></div>
-                                    <div className="section-customize-title">Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội</div>
-                                </div>
-                            </div>
+                            {arrDocs && arrDocs.length > 0
+                                && arrDocs.map((item) => {
+                                    let imageBase64
+                                    if (item.image) {
+                                        imageBase64 = new Buffer(item.image, 'base64').toString('binary')
+                                    }
+                                    const nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
+                                    const nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
+                                    return (
+                                        <div className="section-customize" key={item.id}>
+                                            <div className="section-customize-container">
+                                                <div
+                                                    className="bg-image"
+                                                    style={{ backgroundImage: `url(${imageBase64})` }}
+                                                ></div>
+                                                <div className="section-customize-title">{language === LANGUAGES.VI ? nameVi : nameEn}</div>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
                         </Slider>
                     </div>
                 </div>
@@ -65,12 +74,15 @@ class OutStandingDoctor extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        language: state.app.language,
+        topDoctorsRedux: state.admin.topDoctors
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        loadTopDoctors: () => dispatch(actions.fetchTopDoctors()),
     };
 };
 

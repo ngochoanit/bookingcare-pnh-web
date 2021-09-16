@@ -100,7 +100,7 @@ export const createNewUser = (data) => {
                 dispatch(fetchAllUsersStart())
             }
             else {
-                toast.success("Create a new user failed");
+                toast.error(res.errMessage);
                 dispatch(saveUserFailed())
             }
         }
@@ -197,4 +197,30 @@ export const fetchAllUsersSuccessed = (usersData) => ({
 })
 export const fetchAllUsersFailed = () => ({
     type: actionTypes.FETCH_ALL_USERS_FAILED
+})
+
+//Fetch top dotor
+export const fetchTopDoctors = () => {
+    return async (dispatch, getState) => {
+        try {
+            const res = await userService.getTopDoctorHomeService('6')
+            if (res && res.errCode === 0) {
+                dispatch(fetchTopDoctorsSuccessed(res.data))
+            }
+            else {
+                dispatch(fetchTopDoctorsFailed())
+            }
+        }
+        catch (e) {
+            dispatch(fetchTopDoctorsFailed())
+            console.log("fetchAllUsersFailed", e)
+        }
+    }
+}
+export const fetchTopDoctorsSuccessed = (usersData) => ({
+    type: actionTypes.FETCH_TOP_DOCTORS_SUCCESSED,
+    data: usersData,
+})
+export const fetchTopDoctorsFailed = () => ({
+    type: actionTypes.FETCH_TOP_DOCTORS_FAILED
 })

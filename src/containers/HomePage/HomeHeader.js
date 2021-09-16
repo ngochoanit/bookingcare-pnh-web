@@ -24,7 +24,7 @@ class HomeHeader extends Component {
                         <div className="center-content">
                             <div className="child-content">
                                 <div><b><FormattedMessage id="home-header.specialist" /></b></div>
-                                <div className="sub-title"><FormattedMessage id="home-header.search-docter" /></div>
+                                <div className="sub-title"><FormattedMessage id="home-header.search-doctor" /></div>
                             </div>
                             <div className="child-content">
                                 <div><b><FormattedMessage id="home-header.health-facility" /></b></div>
