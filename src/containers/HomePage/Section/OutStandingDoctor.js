@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { LANGUAGES } from '../../../utils/constant'
-
+import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -25,6 +25,10 @@ class OutStandingDoctor extends Component {
                 arrDocs: this.props.topDoctorsRedux
             })
         }
+    }
+    // handle onClick view detail doctor
+    handleViewDetqailDoctor = (id) => {
+        this.props.history.push(`/detail-doctor/${id}`)
     }
     render() {
         const settings = this.props.settings;
@@ -52,7 +56,11 @@ class OutStandingDoctor extends Component {
                                     const nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                                     const nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                                     return (
-                                        <div className="section-customize" key={item.id}>
+                                        <div
+                                            className="section-customize"
+                                            key={item.id}
+                                            onClick={() => { this.handleViewDetqailDoctor(item.id) }}
+                                        >
                                             <div className="section-customize-container">
                                                 <div
                                                     className="bg-image"
@@ -86,4 +94,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));

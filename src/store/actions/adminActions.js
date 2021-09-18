@@ -93,7 +93,6 @@ export const createNewUser = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await userService.createNewUserService(data);
-            console.log("check create user redux", res)
             if (res && res.errCode === 0) {
                 toast.success("Create a new user succeeded");
                 dispatch(saveUserSuccess())
@@ -213,7 +212,7 @@ export const fetchTopDoctors = () => {
         }
         catch (e) {
             dispatch(fetchTopDoctorsFailed())
-            console.log("fetchAllUsersFailed", e)
+            console.log("fetchTopDoctorsFailed", e)
         }
     }
 }
@@ -223,4 +222,56 @@ export const fetchTopDoctorsSuccessed = (usersData) => ({
 })
 export const fetchTopDoctorsFailed = () => ({
     type: actionTypes.FETCH_TOP_DOCTORS_FAILED
+})
+//Fetch all doctors
+export const fetchAllDoctors = () => {
+    return async (dispatch, getState) => {
+        try {
+            const res = await userService.getAllDoctorsService()
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllDoctorsSuccessed(res.data))
+            }
+            else {
+                dispatch(fetchAllDoctorsFailed())
+            }
+        }
+        catch (e) {
+            dispatch(fetchAllDoctorsFailed())
+            console.log("fetchAllDoctorsFailed", e)
+        }
+    }
+}
+export const fetchAllDoctorsSuccessed = (doctors) => ({
+    type: actionTypes.FETCH_ALL_DOCTORS_SUCCESSED,
+    data: doctors,
+})
+export const fetchAllDoctorsFailed = () => ({
+    type: actionTypes.FETCH_ALL_DOCTORS_FAILED
+})
+//Save detail doctor
+export const saveDetailDoctor = (data) => {
+    console.log('action', data)
+    return async (dispatch, getState) => {
+        try {
+            const res = await userService.postInforDoctorSevice(data)
+            if (res && res.errCode === 0) {
+                toast.success("Save information doctor successfully");
+                dispatch(fetchAllDoctorsSuccessed(res.data))
+            }
+            else {
+                toast.error("Save information doctor failed");
+                dispatch(fetchAllDoctorsFailed())
+            }
+        }
+        catch (e) {
+            dispatch(saveDetailDoctorFailed())
+            console.log("fetchAllDoctorsFailed", e)
+        }
+    }
+}
+export const saveDetailDoctorSuccessed = (doctors) => ({
+    type: actionTypes.FETCH_ALL_DOCTORS_SUCCESSED,
+})
+export const saveDetailDoctorFailed = () => ({
+    type: actionTypes.FETCH_ALL_DOCTORS_FAILED
 })

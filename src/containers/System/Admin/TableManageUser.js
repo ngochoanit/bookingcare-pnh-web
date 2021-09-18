@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../store/actions'
 
 import './TableManageUser.scss'
+
 class TableManageUser extends Component {
     constructor(props) {
         super(props)

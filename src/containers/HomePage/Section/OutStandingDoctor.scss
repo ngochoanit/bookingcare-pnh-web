@@ -9,6 +9,9 @@
                 .section-customize {
                     text-align: center;
 
+                    &:hover {
+                        cursor: pointer;
+                    }
 
                     .section-customize-container {
                         display: flex;
