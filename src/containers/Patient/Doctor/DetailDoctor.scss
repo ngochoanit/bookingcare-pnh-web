@@ -1,0 +1,44 @@
+.doctor-detail-container {
+
+    .infor-doctor {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .infor-doctor-content-left {
+            width: 40px;
+
+            &-avatar {
+                width: 100%;
+                padding-top: 100%;
+                border: 1px solid #ccc;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 50%;
+            }
+        }
+
+        .infor-doctor-content-right {
+            width: 60px;
+
+            &-top {
+                font-size: 20px;
+                font-weight: 600px;
+
+            }
+
+            &-bottom {
+                padding-top: 10px;
+            }
+        }
+    }
+
+    .detail-infor-doctor {
+        background-color: #F9F9F9;
+
+        .container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+}

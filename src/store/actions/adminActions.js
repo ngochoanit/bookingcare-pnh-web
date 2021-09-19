@@ -256,22 +256,22 @@ export const saveDetailDoctor = (data) => {
             const res = await userService.postInforDoctorSevice(data)
             if (res && res.errCode === 0) {
                 toast.success("Save information doctor successfully");
-                dispatch(fetchAllDoctorsSuccessed(res.data))
+                dispatch(saveDetailDoctorSuccessed(res.data))
             }
             else {
                 toast.error("Save information doctor failed");
-                dispatch(fetchAllDoctorsFailed())
+                dispatch(saveDetailDoctorFailed())
             }
         }
         catch (e) {
             dispatch(saveDetailDoctorFailed())
-            console.log("fetchAllDoctorsFailed", e)
+            console.log("saveDetailDoctorFailed", e)
         }
     }
 }
 export const saveDetailDoctorSuccessed = (doctors) => ({
-    type: actionTypes.FETCH_ALL_DOCTORS_SUCCESSED,
+    type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESSED,
 })
 export const saveDetailDoctorFailed = () => ({
-    type: actionTypes.FETCH_ALL_DOCTORS_FAILED
+    type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED
 })
