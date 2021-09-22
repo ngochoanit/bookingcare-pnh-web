@@ -58,5 +58,11 @@
     "home-page": {
         "outstanding-doctor": "Bác Sĩ Nổi Bật Tuần Qua",
         "more-infor": "Xem Thêm"
+    },
+    "manage-schedule": {
+        "title": "Quản Lý Kế Hoạch Khám Bệnh Của Bác Sĩ",
+        "choose-doctor": "Chọn Bác Sĩ",
+        "choose-date": "Chọn Ngày",
+        "save": "Lưu Thông Tin"
     }
 }

@@ -19,13 +19,8 @@ export const adminMenu = [
             //     name: 'menu.admin.manage-admin', link: '/system/user-admin',
             // },
             { //Quản Lý kế Hoạch Khám bệnh bác sĩ
-                name: 'menu.doctor.manage-schedule',
-                menus: [
-                    {
-                        name: 'menu.doctor.schedule', link: '/doctor/manage-schedule',
-                    },
 
-                ]
+                name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule',
             }
         ]
     },

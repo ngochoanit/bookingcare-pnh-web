@@ -275,3 +275,28 @@ export const saveDetailDoctorSuccessed = (doctors) => ({
 export const saveDetailDoctorFailed = () => ({
     type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED
 })
+//Fetch all schedule
+export const fetchAllScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            const res = await userService.getAllCodeService("TIME")
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllScheduleTimeSuccessed(res.data))
+            }
+            else {
+                dispatch(fetchAllScheduleTimeFailed())
+            }
+        }
+        catch (e) {
+            dispatch(fetchAllScheduleTimeFailed())
+            console.log("fetchAllScheduleTimeFailed", e)
+        }
+    }
+}
+export const fetchAllScheduleTimeSuccessed = (times) => ({
+    type: actionTypes.FECTH_ALLCODE_SCHEDULE_TIME_SUCCESSED,
+    data: times,
+})
+export const fetchAllScheduleTimeFailed = () => ({
+    type: actionTypes.FECTH_ALLCODE_SCHEDULE_TIME_FAILED
+})
