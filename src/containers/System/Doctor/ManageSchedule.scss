@@ -1,0 +1,31 @@
+.manage-schedule-content {
+    .manage-schedule-title {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 600;
+        color: #0071ba;
+        margin-top: 15px;
+
+    }
+
+    .pick-hour-container {
+
+        .group-btn-schedule {
+
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -30px;
+
+        }
+
+        .btn-schedule {
+            padding: 5 10px;
+            border: 1px solid #ccc;
+            width: calc(25% - 30px);
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+    }
+
+}
