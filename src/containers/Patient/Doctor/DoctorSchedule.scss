@@ -1,0 +1,51 @@
+.all-schedule{
+    select{
+        width: 150px;
+        font-size:16px;
+        padding:5px 0;
+        border:none;
+        border-bottom: 1px solid #ccc;
+        outline:none;
+        color:#047b96;
+        
+    }
+}
+.all-available-time{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .text-calender{
+        span{
+            text-transform: uppercase;
+            color:#333;
+            font-weight:600;
+           i{
+               
+               margin-right: 8px;
+           }
+        }
+    }
+    .time-content{
+        padding: 10px 0;
+        .time-content-btn-group{
+            display:flex;
+            flex-wrap: wrap;
+            margin-left: -30px;
+
+            button{
+                padding: 5px 10px;
+                border: 1px solid #ccc;
+                width: calc(25% - 30px);
+                margin-left: 30px;
+                margin-bottom: 10px;
+                background:#F7D800;
+                font-size:14px;
+                font-weight: 600 ;
+                &:hover{
+                    background: #45c3d2;
+                    color:#fff;
+                }
+            }
+        }
+        
+    }
+}

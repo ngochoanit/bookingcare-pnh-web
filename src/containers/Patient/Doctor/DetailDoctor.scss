@@ -32,11 +32,21 @@
             }
         }
     }
+.schedule-doctor{
+    padding-bottom: 20px ;
+    .schedule-doctor-container {
+        .schedule-doctor-content-left{
+            border-right: 1px solid #ccc;
+        }
+        .schedule-doctor-content-right{
 
+        }
+    }
+}
     .detail-infor-doctor {
         background-color: #F9F9F9;
 
-        .container {
+        .detail-infor-doctor-container {
             padding-top: 20px;
             padding-bottom: 20px;
         }
