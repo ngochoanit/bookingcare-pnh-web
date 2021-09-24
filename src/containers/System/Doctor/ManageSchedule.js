@@ -25,8 +25,9 @@ class ManageSchedule extends Component {
         this.state = {
             selectedDoctor: '',
             doctors: [],
-            currentDate: new Date().setHours(0, 0, 0, 0),
-            rangeTime: []
+            currentDate: new Date(new Date().setHours(0, 0, 0, 0)),
+            rangeTime: [],
+            dataRangeTime: []
         }
     }
     componentDidMount() {
@@ -58,7 +59,8 @@ class ManageSchedule extends Component {
                 })
             }
             this.setState({
-                rangeTime: data
+                rangeTime: data,
+                dataRangeTime: _.cloneDeep(data),
             })
         }
 
@@ -131,15 +133,26 @@ class ManageSchedule extends Component {
                 return;
             }
         }
-        const response = await userService.postBulkScheduleDoctor({
+        const res = await userService.postBulkScheduleDoctor({
             arrSchedule: result,
             doctorId: selectedDoctor.value,
-            date: currentDate.getTime(),
+            date: currentDate
+        })
+        if (res && res.errCode === 0) {
+            toast.success("Lưu Thông Tin Thành Công");
+        }
+        else {
+            toast.error("Thất Bại");
+        }
+        this.setState({
+            selectedDoctor: '',
+            currentDate: new Date(new Date().setHours(0, 0, 0, 0)),
+            rangeTime: _.cloneDeep(this.state.dataRangeTime),
         })
 
     }
     render() {
-
+        console.log(this.state.currentDate.getTime())
         const { rangeTime } = this.state
         const { language } = this.props
         return (

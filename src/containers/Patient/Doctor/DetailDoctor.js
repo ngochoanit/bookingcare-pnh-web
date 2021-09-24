@@ -5,6 +5,7 @@ import { LANGUAGES } from '../../../utils/constant'
 
 import HomeHeader from '../../HomePage/HomeHeader';
 import HomeFooter from '../../HomePage/HomeFooter';
+import DoctorSchedule from './DoctorSchedule'
 
 import './DetailDoctor.scss'
 class DetailDoctor extends Component {
@@ -24,6 +25,7 @@ class DetailDoctor extends Component {
             }
         }
     }
+
     componentDidUpdate() {
 
     }
@@ -59,10 +61,23 @@ class DetailDoctor extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="schedule-doctor"></div>
-                    <div className="detail-infor-doctor">
-                        <div className="container">
+                    <div className="schedule-doctor">
+                        <div className="schedule-doctor-container container">
+                            <div className="row">
+                                <div className="schedule-doctor-content-left col-6">
+                                    <DoctorSchedule doctorId={this.state.detailDoctor.id} />
 
+                                </div>
+                                <div className="schedule-doctor-content-right col-6">
+                                    ádasd
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className="detail-infor-doctor">
+                        <div className="detail-infor-doctor-container container">
                             <div className="row">
                                 <div className="detail-infor-doctor-content col-12">
                                 </div>
