@@ -70,5 +70,23 @@
             "schedule": "Lịch Khám",
             "no-schedule": "Bác sĩ không có kế hoạch. Vui lòng chọn thời gian khác"
         }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Tạo Thêm Thông Tin Doctor",
+            "select-doctor": "Lựa Chọn Bác Sĩ",
+            "intro": "Thông Tin Giới Thiệu",
+            "add": "Tạo Thông Tin",
+            "save": "Lưu Thông Tin",
+            "price": "Giá Khám Bệnh",
+            "payment": "Phương Thức Thanh Toán",
+            "province": "Tỉnh Thành",
+            "nameClinic": "Tên Phòng Khám",
+            "addressClinic": "Địa Chỉ Phòng Khám",
+            "note": "Ghi Chú",
+            "select-price": "Giá Khám",
+            "select-payment": "Phương Thức Thanh Toán",
+            "select-province": "Tỉnh Thành"
+        }
     }
 }

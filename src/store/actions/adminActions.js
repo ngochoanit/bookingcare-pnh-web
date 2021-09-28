@@ -7,7 +7,7 @@ export const fetchGenderStart = () => {
 
         try {
             dispatch({ type: actionTypes.FETCH_GENDER_START })
-            let res = await userService.getAllCodeService('gender')
+            let res = await userService.getAllCodeService('GENDER')
             if (res && res.errCode === 0) {
                 dispatch(fetchGenderSuccess(res.data))
             }
@@ -299,4 +299,39 @@ export const fetchAllScheduleTimeSuccessed = (times) => ({
 })
 export const fetchAllScheduleTimeFailed = () => ({
     type: actionTypes.FECTH_ALLCODE_SCHEDULE_TIME_FAILED
+})
+//Fetch allcode doctor price
+export const getRequiredDoctorInfor = () => {
+    return async (dispatch, getState) => {
+        try {
+            const [resPrice, resPayment, resProvince] = await Promise.all([
+                userService.getAllCodeService('PRICE'),
+                userService.getAllCodeService('PAYMENT'),
+                userService.getAllCodeService('PROVINCE')])
+            if (resPrice && resPrice.errCode === 0
+                && resPayment && resPayment.errCode === 0
+                && resProvince && resProvince.errCode === 0) {
+                const data = {
+                    resPrice: resPrice.data,
+                    resPayment: resPayment.data,
+                    resProvince: resProvince.data,
+                }
+                dispatch(getRequiredDoctorInforSuccessed(data))
+            }
+            else {
+                dispatch(getRequiredDoctorInforFailed())
+            }
+        }
+        catch (e) {
+            dispatch(getRequiredDoctorInforFailed())
+            console.log("getRequiredDoctorInforFailed", e)
+        }
+    }
+}
+export const getRequiredDoctorInforSuccessed = (data) => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_SUCCESSED,
+    data: data,
+})
+export const getRequiredDoctorInforFailed = () => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_FAILED
 })

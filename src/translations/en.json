@@ -70,5 +70,23 @@
             "schedule": "Schedule",
             "no-schedule": "The doctor has no plan. Please select other time"
         }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Create more information doctors",
+            "select-doctor": "Select Doctor",
+            "intro": "Introduction",
+            "add": "Create infor",
+            "save": "Save infor",
+            "price": "Price",
+            "payment": "Payment",
+            "province": "Province",
+            "nameClinic": "Clinic's Name",
+            "addressClinic": "Clinic's Address",
+            "note": "Note",
+            "select-price": "Price",
+            "select-payment": "Payment",
+            "select-province": "Province"
+        }
     }
 }
