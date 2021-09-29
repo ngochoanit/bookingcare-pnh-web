@@ -69,6 +69,13 @@
         "detail-doctor": {
             "schedule": "Schedule",
             "no-schedule": "The doctor has no plan. Please select other time"
+        },
+        "extra-infor": {
+            "text-address": "Examination Address",
+            "text-price": "Examination Price",
+            "show-more": "See Details",
+            "hide-more": "Hide Price List",
+            "payment": "The patient can pay the cost in the form of "
         }
     },
     "admin": {

@@ -40,6 +40,10 @@ const postInforDoctorSevice = (data) => {
 const getDetailInforDoctor = (data) => {
     return axios.get(`/api/get-detail-doctor-by-id?id=${data}`)
 }
+//post extra doctor services
+const getExtraInforDoctor = (data) => {
+    return axios.get(`/api/get-extra-doctor-by-id?id=${data}`)
+}
 //post multi schedule
 const postBulkScheduleDoctor = (data) => {
     return axios.post(`/api/bulk-create-schedule`, data)
@@ -59,5 +63,6 @@ export const userService = {
     postInforDoctorSevice,
     getDetailInforDoctor,
     postBulkScheduleDoctor,
-    getScheduleDoctorByDate
+    getScheduleDoctorByDate,
+    getExtraInforDoctor
 }

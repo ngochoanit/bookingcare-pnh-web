@@ -69,6 +69,13 @@
         "detail-doctor": {
             "schedule": "Lịch Khám",
             "no-schedule": "Bác sĩ không có kế hoạch. Vui lòng chọn thời gian khác"
+        },
+        "extra-infor": {
+            "text-address": "Địa Chỉ Khám",
+            "text-price": "Giá Khám",
+            "show-more": "Xem Chi Ciết",
+            "hide-more": "Ẩn Bảng Giá",
+            "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức "
         }
     },
     "admin": {

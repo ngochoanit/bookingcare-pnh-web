@@ -52,13 +52,26 @@ class ManageDoctor extends Component {
             })
         }
         if (prevProps.language !== this.props.language) {
+            let { selectedDoctor, selectedPrice, selectedPayment, selectedProvince } = this.state
             const dataSelector = this.props.allDoctorsRedux
             const { resPrice, resPayment, resProvince, } = this.props.allRequiredDoctorInfor
+            const doctors = this.buildDataInputSelect(dataSelector, "USERS")
+            const listPrice = this.buildDataInputSelect(resPrice, "PRICE")
+            const listPayment = this.buildDataInputSelect(resPayment, "PAYMENT")
+            const listProvince = this.buildDataInputSelect(resProvince, "PROVINCE")
+            selectedDoctor = doctors.find((item) => { return (item.value === selectedDoctor.value) }) || ''
+            selectedPrice = listPrice.find((item) => { return (item.value === selectedPrice.value) }) || ''
+            selectedPayment = listPayment.find((item) => { return (item.value === selectedPayment.value) }) || ''
+            selectedProvince = listProvince.find((item) => { return (item.value === selectedProvince.value) }) || ''
             this.setState({
-                doctors: this.buildDataInputSelect(dataSelector, "USERS"),
-                listPrice: this.buildDataInputSelect(resPrice, "PRICE"),
-                listPayment: this.buildDataInputSelect(resPayment, "PAYMENT"),
-                listProvince: this.buildDataInputSelect(resProvince, "PROVINCE")
+                doctors: doctors,
+                listPrice: listPrice,
+                listPayment: listPayment,
+                listProvince: listProvince,
+                selectedDoctor: selectedDoctor,
+                selectedPrice: selectedPrice,
+                selectedPayment: selectedPayment,
+                selectedProvince: selectedProvince,
             })
         }
         if (prevProps.allRequiredDoctorInfor !== this.props.allRequiredDoctorInfor) {
@@ -90,8 +103,8 @@ class ManageDoctor extends Component {
             if (type === "PRICE") {
                 inputData.map((item) => {
                     let obj = {}
-                    let labelVi = item.valueVi
-                    let labelEn = item.valueEn
+                    let labelVi = `${this.numberWithCommas(item.valueVi)} VND`
+                    let labelEn = `${this.numberWithCommas(item.valueEn)} $`
                     obj.label = language === LANGUAGES.VI ? labelVi : labelEn;
                     obj.value = item.keyMap
                     return result.push(obj)
@@ -162,35 +175,73 @@ class ManageDoctor extends Component {
             note: '',
         })
     }
+    //format ro dicdecimals
+    numberWithCommas = (x) => {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     //handle select change 
     handleSelectDoctorChange = async (selectedOption) => {
+        const doctorInforDetail = {
+            selectedDoctor: selectedOption,
+            contentMarkdown: '',
+            contentHTML: '',
+            description: '',
 
+            selectedPrice: '',
+            selectedPayment: '',
+            selectedProvince: '',
+            nameClinic: '',
+            addressClinic: '',
+            note: '',
+            hasOldData: false,
+
+        }
+        const { listPrice, listPayment, listProvince } = this.state
         const res = await userService.getDetailInforDoctor(selectedOption.value)
-        if (res && res.errCode === 0 && res.data && res.data.Markdown) {
-            const markdown = res.data.Markdown;
-            this.setState({
-                selectedDoctor: selectedOption,
-                contentMarkdown: markdown.contentMarkdown,
-                contentHTML: markdown.contentHTML,
-                description: markdown.description,
-                hasOldData: true,
-            })
+        if (res && res.errCode === 0 && res.data) {
+            if (res.data.Markdown) {
+                const markdown = res.data.Markdown;
+                Object.assign(doctorInforDetail, { ...markdown, hasOldData: true });
+            }
+            if (res.data.Doctor_infor) {
+                const doctorInfor = res.data.Doctor_infor
+                const selectedPrice = listPrice.find((item) => { return (item.value === doctorInfor.priceId) }) || ''
+                const selectedPayment = listPayment.find((item) => { return (item.value === doctorInfor.paymentId) }) || ''
+                const selectedProvince = listProvince.find((item) => { return (item.value === doctorInfor.provinceId) }) || ''
+                doctorInforDetail['selectedPrice'] = selectedPrice
+                doctorInforDetail['selectedPayment'] = selectedPayment
+                doctorInforDetail['selectedProvince'] = selectedProvince
+                doctorInforDetail['nameClinic'] = doctorInfor.nameClinic || ''
+                doctorInforDetail['addressClinic'] = doctorInfor.addressClinic || ''
+                doctorInforDetail['note'] = doctorInfor.note || ''
+            }
+
+            // this.setState({
+            //     selectedDoctor: selectedOption,
+            //     contentMarkdown: markdown.contentMarkdown,
+            //     contentHTML: markdown.contentHTML,
+            //     description: markdown.description,
+            //     hasOldData: true,
+            // })
         }
-        else {
-            this.setState({
-                selectedDoctor: selectedOption,
-                contentMarkdown: '',
-                contentHTML: '',
-                description: '',
-            })
-        }
+        // else {
+        //     this.setState({
+        //         selectedDoctor: selectedOption,
+        //         contentMarkdown: '',
+        //         contentHTML: '',
+        //         description: '',
+        //     })
+        // }
+        this.setState({
+            ...doctorInforDetail
+        }, () => { console.log(this.state) })
     }
     handleChangeSelectDoctorInfor = async (selectedOption, name) => {
         const newState = _.cloneDeep(this.state)
         this.setState({
             ...newState,
             [name.name]: selectedOption,
-        }, () => { console.log(this.state) })
+        })
     }
     //handle textarea change 
     handleOnChangeText = (event) => {

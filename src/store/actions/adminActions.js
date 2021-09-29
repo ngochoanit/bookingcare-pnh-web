@@ -259,7 +259,7 @@ export const saveDetailDoctor = (data) => {
                 dispatch(saveDetailDoctorSuccessed(res.data))
             }
             else {
-                toast.error("Save information doctor failed");
+                toast.error(res.errMessage);
                 dispatch(saveDetailDoctorFailed())
             }
         }

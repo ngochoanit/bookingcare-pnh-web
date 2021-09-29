@@ -6,6 +6,7 @@ import { LANGUAGES } from '../../../utils/constant'
 import HomeHeader from '../../HomePage/HomeHeader';
 import HomeFooter from '../../HomePage/HomeFooter';
 import DoctorSchedule from './DoctorSchedule'
+import DoctorExtraInfor from './DoctorExtraInfor';
 
 import './DetailDoctor.scss'
 class DetailDoctor extends Component {
@@ -69,7 +70,7 @@ class DetailDoctor extends Component {
 
                                 </div>
                                 <div className="schedule-doctor-content-right col-6">
-                                    ádasd
+                                    <DoctorExtraInfor doctorId={this.state.detailDoctor.id}></DoctorExtraInfor>
 
                                 </div>
                             </div>

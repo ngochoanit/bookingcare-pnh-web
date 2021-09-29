@@ -1,0 +1,80 @@
+.doctor-extra-infor-container{
+    .content-top {
+        .content-top-body{
+            border-bottom: 1px solid #ccc;
+            .content-top-text-address{
+                text-transform: uppercase;
+                padding-bottom: 10px;
+                color: #666;
+                font-size:16px;
+                font-weight:600;
+            }
+            .content-top-text-name-clinic{
+                font-weight: 600;
+                padding-bottom: 5px;
+            }
+            .content-top-text-detail-address{
+                font-weight: 600;
+                padding-bottom: 10px;
+            }
+        }
+    }
+    .content-bottom{
+        .content-bottom-body{
+            padding-top: 10px;
+
+            .doctor-infor-price{
+                .doctor-infor-price-title{
+                    color: #666;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-right:4px;
+                }
+                .doctor-infor-price-value{
+                    color: #000000;
+                    font-size:16px;
+                    font-weight:600;
+                    margin-right:4px;
+                }
+            }
+            .doctor-infor-price-detail{
+                .detail-price-title{
+                    color: #666;
+                    font-size:16px;
+                    font-weight:600
+                }
+                .detail-price-content{
+                    margin:10px 0px;
+                    border: 1px solid #ccc;
+                    
+                    .detail-price-content-top{
+                        background-color: #f8f8f8;
+                        padding: 4px;
+                        .detail-price-content-top-title{
+                            display:flex;
+                            justify-content:space-between;
+                            span{
+                                font-size:14px;
+                                color: #000000;
+                            }
+                        }
+                        .detail-price-content-top-note{
+                            font-size: 13px;
+                            color: #666
+                        }
+                    }
+                    .detail-price-content-bottom{
+                        background-color: #EEEEEE;
+                        padding: 4px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .show-hide-detail-infor{
+                color: #45C3D2;
+                cursor: pointer;
+            }
+        }
+        
+    }
+}
