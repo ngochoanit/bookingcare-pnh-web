@@ -10,13 +10,16 @@ import { userService } from '../../../services/userService'
 import { LANGUAGES } from '../../../utils/constant'
 import './DoctorSchedule.scss'
 import { FormattedMessage } from 'react-intl';
+import BookingModal from './Modal/BookingModal'
 class DoctorSchedule extends Component {
     constructor(props) {
         super(props);
         this.state = {
             allDays: [],
             allAvaliableTime: [],
-            selectedDate: new Date(new Date().setHours(0, 0, 0, 0)).getTime()
+            selectedDate: new Date(new Date().setHours(0, 0, 0, 0)).getTime(),
+            isOpenBookingModal: false,
+            dataScheduleTimeModal: {}
         }
     }
     async componentDidMount() {
@@ -86,55 +89,79 @@ class DoctorSchedule extends Component {
             selectedDate: event.target.value,
         })
     }
+    handleClickScheduleTime = (item) => {
+        this.setState({
+            isOpenBookingModal: true,
+            dataScheduleTimeModal: item
+        })
+    }
+    closeBookingModal = () => {
+        this.setState({
+            isOpenBookingModal: false
+        })
+    }
     render() {
-        const { allDays, allAvaliableTime } = this.state
+        const { allDays, allAvaliableTime, dataScheduleTimeModal, isOpenBookingModal } = this.state
         const { language } = this.props
         // console.log(this.state)
         return (
-            <div className="doctor-schedule-container row">
-                <div className="all-schedule col-12">
-                    <select onChange={(event) => this.handleOnchangeSelect(event)}>
-                        {
-                            allDays && allDays.length > 0 &&
-                            allDays.map((item, index) => {
-                                return (
-                                    <option
-                                        value={item.value}
-                                        key={index}>
-                                        {item.label}
-                                    </option>
-                                )
-                            })
-                        }
+            <React.Fragment>
+                <div className="doctor-schedule-container row">
+                    <div className="all-schedule col-12">
+                        <select onChange={(event) => this.handleOnchangeSelect(event)}>
+                            {
+                                allDays && allDays.length > 0 &&
+                                allDays.map((item, index) => {
+                                    return (
+                                        <option
+                                            value={item.value}
+                                            key={index}>
+                                            {item.label}
+                                        </option>
+                                    )
+                                })
+                            }
 
-                    </select>
-                </div>
-                <div className="all-available-time col-12">
-                    <div className="text-calender">
-                        <span>
-                            <i className="fa fa-calendar-alt"></i>
-                            <FormattedMessage id="patient.detail-doctor.schedule" />
-                        </span>
+                        </select>
                     </div>
-                    <div className="time-content">
-                        {
-                            allAvaliableTime && allAvaliableTime.length > 0 ?
-                                (<div className="time-content-btn-group">
-                                    {
-                                        allAvaliableTime.map((item) => {
-                                            let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn
-                                            return (
+                    <div className="all-available-time col-12">
+                        <div className="text-calender">
+                            <span>
+                                <i className="fa fa-calendar-alt"></i>
+                                <FormattedMessage id="patient.detail-doctor.schedule" />
+                            </span>
+                        </div>
+                        <div className="time-content">
+                            {
+                                allAvaliableTime && allAvaliableTime.length > 0 ?
+                                    (<div className="time-content-btn-group">
+                                        {
+                                            allAvaliableTime.map((item) => {
+                                                let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn
+                                                return (
 
-                                                <button key={item.id} className="btn">{timeDisplay}</button>
-                                            )
-                                        })
-                                    }
-                                </div>)
-                                : (<span> <FormattedMessage id="patient.detail-doctor.no-schedule" /></span>)
-                        }
+                                                    <button
+                                                        key={item.id}
+                                                        className="btn"
+                                                        onClick={() => this.handleClickScheduleTime(item)}
+                                                    >
+                                                        {timeDisplay}
+                                                    </button>
+                                                )
+                                            })
+                                        }
+                                    </div>)
+                                    : (<span> <FormattedMessage id="patient.detail-doctor.no-schedule" /></span>)
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
+                <BookingModal
+                    isOpen={isOpenBookingModal}
+                    closeBookingModal={this.closeBookingModal}
+                    dataTime={dataScheduleTimeModal}
+                />
+            </React.Fragment>
         )
     }
 }

@@ -8,7 +8,6 @@ import { userService } from '../../../services/userService'
 import { LANGUAGES } from '../../../utils/constant'
 import './DoctorExtraInfor.scss'
 import { FormattedMessage } from 'react-intl';
-import { restArgs } from 'underscore'
 import NumberFormat from 'react-number-format'
 class DoctorExtraInfor extends Component {
     constructor(props) {
@@ -64,13 +63,13 @@ class DoctorExtraInfor extends Component {
                             isShowDetailInfor ?
                                 (<div className="doctor-infor-price-detail">
                                     <div className="detail-price-title" >
-                                        <FormattedMessage id="patient.extra-infor.text-price" />
+                                        <FormattedMessage id="patient.extra-infor.title-price" />
                                     </div>
                                     <div className="detail-price-content">
                                         <div className="detail-price-content-top">
                                             <div className="detail-price-content-top-title">
                                                 <span>
-                                                    <FormattedMessage id="patient.extra-infor.text-price" />
+                                                    <FormattedMessage id="patient.extra-infor.title-price" />
                                                 </span>
                                                 <span>
                                                     {
