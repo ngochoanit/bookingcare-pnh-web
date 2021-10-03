@@ -37,7 +37,7 @@ class DoctorExtraInfor extends Component {
     render() {
         const { isShowDetailInfor, extraInfor } = this.state
         const { language } = this.props
-        console.log(extraInfor)
+
         return (
             <div className="doctor-extra-infor-container row">
                 <div className="content-top col-12">
@@ -63,13 +63,13 @@ class DoctorExtraInfor extends Component {
                             isShowDetailInfor ?
                                 (<div className="doctor-infor-price-detail">
                                     <div className="detail-price-title" >
-                                        <FormattedMessage id="patient.extra-infor.title-price" />
+                                        <FormattedMessage id="patient.extra-infor.text-price" />
                                     </div>
                                     <div className="detail-price-content">
                                         <div className="detail-price-content-top">
                                             <div className="detail-price-content-top-title">
                                                 <span>
-                                                    <FormattedMessage id="patient.extra-infor.title-price" />
+                                                    <FormattedMessage id="patient.extra-infor.text-price" />
                                                 </span>
                                                 <span>
                                                     {

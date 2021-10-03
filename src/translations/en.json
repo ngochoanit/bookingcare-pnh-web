@@ -76,6 +76,21 @@
             "show-more": "See Details",
             "hide-more": "Hide Price List",
             "payment": "The patient can pay the cost in the form of "
+        },
+        "profile": {
+            "description": "Free booking",
+            "price": "Price: "
+        },
+        "booking-modal": {
+            "title": "Schedule Appointment Information",
+            "fullname": "Fullname",
+            "phonenumber": "Phone Number",
+            "address": "Contact Address",
+            "gender": "Gender",
+            "birthday": "Birthday",
+            "reason": "Reason for Examination",
+            "confirm": "Confirm",
+            "cancel": "Cancel"
         }
     },
     "admin": {

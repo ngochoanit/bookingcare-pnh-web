@@ -11,7 +11,7 @@ import Select from 'react-select'
 import { toast } from 'react-toastify';
 import moment from 'moment'
 import _ from 'lodash';
-// import Flatpickr from "react-flatpickr";
+
 import DatePicker, { registerLocale } from "react-datepicker";
 import VI from "date-fns/locale/vi";
 import "react-datepicker/dist/react-datepicker.css";
@@ -106,7 +106,6 @@ class ManageSchedule extends Component {
     handleSaveSchedule = async () => {
         const { rangeTime, selectedDoctor, currentDate } = this.state
         let result = [];
-        console.log(typeof (currentDate))
         if (!currentDate) {
             toast.error("Invalid date");
             return
@@ -152,7 +151,6 @@ class ManageSchedule extends Component {
 
     }
     render() {
-        console.log(this.state.currentDate.getTime())
         const { rangeTime } = this.state
         const { language } = this.props
         return (

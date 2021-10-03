@@ -234,7 +234,7 @@ class ManageDoctor extends Component {
         // }
         this.setState({
             ...doctorInforDetail
-        }, () => { console.log(this.state) })
+        })
     }
     handleChangeSelectDoctorInfor = async (selectedOption, name) => {
         const newState = _.cloneDeep(this.state)
