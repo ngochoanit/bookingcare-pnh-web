@@ -103,7 +103,6 @@ class DoctorSchedule extends Component {
     render() {
         const { allDays, allAvaliableTime, dataScheduleTimeModal, isOpenBookingModal } = this.state
         const { language, doctorId } = this.props
-
         return (
             <React.Fragment>
                 <div className="doctor-schedule-container row">
