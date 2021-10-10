@@ -434,7 +434,7 @@ class ManageDoctor extends Component {
                         </div>
                         <div className="manage-doctor-editor col-12 my-3 form-group">
                             <MdEditor
-                                style={{ height: '500px' }}
+                                style={{ height: '300px' }}
                                 renderHTML={text => mdParser.render(text)}
                                 onChange={(html, text) => { this.handleEditorChange(html, text) }}
                                 value={contentMarkdown}
