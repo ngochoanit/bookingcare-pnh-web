@@ -80,7 +80,8 @@
         },
         "profile": {
             "description": "Free booking",
-            "price": "Price: "
+            "price": "Price: ",
+            "see-more": "See more"
         },
         "booking-modal": {
             "title": "Schedule Appointment Information",
@@ -102,6 +103,8 @@
             "add": "Create infor",
             "save": "Save infor",
             "price": "Price",
+            "specialty": "Specialty",
+            "clinic": "Phòng Khám",
             "payment": "Payment",
             "province": "Province",
             "nameClinic": "Clinic's Name",
@@ -109,7 +112,9 @@
             "note": "Note",
             "select-price": "Price",
             "select-payment": "Payment",
-            "select-province": "Province"
+            "select-province": "Province",
+            "select-specialty": "Specialty",
+            "select-clinic": "Clinic"
         }
     }
 }

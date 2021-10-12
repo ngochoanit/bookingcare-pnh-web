@@ -80,7 +80,8 @@
         },
         "profile": {
             "description": "Miễn phí đặt lịch",
-            "price": "Giá Khám: "
+            "price": "Giá Khám: ",
+            "see-more": "Xem Thêm"
         },
         "booking-modal": {
             "title": "Thông Tin Đặt Lịch Khám Bệnh",
@@ -103,6 +104,8 @@
             "add": "Tạo Thông Tin",
             "save": "Lưu Thông Tin",
             "price": "Giá Khám Bệnh",
+            "specialty": "Chuyên Khoa",
+            "clinic": "Phòng Khám",
             "payment": "Phương Thức Thanh Toán",
             "province": "Tỉnh Thành",
             "nameClinic": "Tên Phòng Khám",
@@ -110,7 +113,9 @@
             "note": "Ghi Chú",
             "select-price": "Giá Khám",
             "select-payment": "Phương Thức Thanh Toán",
-            "select-province": "Tỉnh Thành"
+            "select-province": "Tỉnh Thành",
+            "select-specialty": "Chọn Chyên Khoa",
+            "select-clinic": "Chọn Phòng Khám"
         }
     }
 }

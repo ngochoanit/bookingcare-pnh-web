@@ -10,6 +10,7 @@ import moment from 'moment'
 import NumberFormat from 'react-number-format';
 import vi from 'moment/locale/vi';
 import en from 'moment/locale/en-au';
+import { Link } from 'react-router-dom'
 class ProfileDoctor extends Component {
     constructor(props) {
         super(props);
@@ -59,7 +60,7 @@ class ProfileDoctor extends Component {
     }
     render() {
         const { dataProfile } = this.state
-        const { language, isShowDescription, dataTime } = this.props
+        const { doctorId, language, isShowDescription, dataTime, isShowLinkDetail, isShowPrice } = this.props
         let nameVi = '', nameEn = ''
         if (dataProfile && dataProfile.positionData) {
             nameVi = `${dataProfile.positionData.valueVi} ${dataProfile.firstName} ${dataProfile.lastName}`
@@ -93,18 +94,29 @@ class ProfileDoctor extends Component {
                             </React.Fragment>
                         }
                     </div>
-                    <div className="profile-doctor-infor-price">
-                        <span className="profile-doctor-infor-price-title">
-                            <FormattedMessage id="patient.profile.price" />
-                        </span>
-                        <span className="profile-doctor-infor-price-value">
-                            <NumberFormat
-                                value={language === LANGUAGES.VI ? priceVi : priceEn}
-                                displayType={'text'}
-                                thousandSeparator={true}
-                                suffix={language === LANGUAGES.VI ? 'VNĐ' : '$'} />
-                        </span>
-                    </div>
+                    {
+                        isShowLinkDetail &&
+                        (<div className="profile-doctor-view-detail">
+
+                            <Link className="profile-doctor-view-detail-link" to={`/detail-doctor/${doctorId}`}><FormattedMessage id="patient.profile.see-more" /></Link>
+                        </div>)
+                    }
+                    {
+                        isShowPrice &&
+                        (<div className="profile-doctor-infor-price">
+                            <span className="profile-doctor-infor-price-title">
+                                <FormattedMessage id="patient.profile.price" />
+                            </span>
+                            <span className="profile-doctor-infor-price-value">
+                                <NumberFormat
+                                    value={language === LANGUAGES.VI ? priceVi : priceEn}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={language === LANGUAGES.VI ? 'VNĐ' : '$'} />
+                            </span>
+                        </div>)
+                    }
+
                 </div>
             </div>
         )
