@@ -304,23 +304,26 @@ export const fetchAllScheduleTimeFailed = () => ({
 export const getRequiredDoctorInfor = () => {
     return async (dispatch, getState) => {
         try {
-            const [resPrice, resPayment, resProvince, resSpecialty] = await Promise.all(
+            const [resPrice, resPayment, resProvince, resSpecialty, resClinic] = await Promise.all(
                 [
                     userService.getAllCodeService('PRICE'),
                     userService.getAllCodeService('PAYMENT'),
                     userService.getAllCodeService('PROVINCE'),
-                    userService.getAllSpecialty()
+                    userService.getAllSpecialty(),
+                    userService.getAllClinic()
                 ]
             )
             if (resPrice && resPrice.errCode === 0
                 && resPayment && resPayment.errCode === 0
                 && resProvince && resProvince.errCode === 0
-                && resSpecialty && resSpecialty.errCode === 0) {
+                && resSpecialty && resSpecialty.errCode === 0
+                && resClinic && resClinic.errCode === 0) {
                 const data = {
                     resPrice: resPrice.data,
                     resPayment: resPayment.data,
                     resProvince: resProvince.data,
-                    resSpecialty: resSpecialty.data
+                    resSpecialty: resSpecialty.data,
+                    resClinic: resClinic.data
                 }
                 dispatch(getRequiredDoctorInforSuccessed(data))
             }
