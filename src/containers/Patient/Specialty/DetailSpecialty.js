@@ -134,17 +134,23 @@ class DetailSpecialty extends Component {
     render() {
 
         let { dataDetailSpecialty, listProvince, selectedProvince } = this.state
-        console.log(listProvince)
+
         let arrDoctors = dataDetailSpecialty.doctorData || []
+        console.log(dataDetailSpecialty)
         return (
             <React.Fragment>
                 <HomeHeader isShowBanner={false} />
                 <div className="detail-specialty-wrap">
                     <div className="detail-specialty-top" style={{ backgroundImage: `url(${dataDetailSpecialty.image})` }} >
                         <div className="detail-specialty-top-container" >
-                            <div class="container">
+                            <div className="container">
 
                                 <div className="row">
+                                    <div className="col-12">
+                                        <div className="detail-specialty-top-title">
+                                            {dataDetailSpecialty.name}
+                                        </div>
+                                    </div>
                                     <div className="col-12">
                                         <div className="detail-specialty-top-content" dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHtml }} ></div>
                                     </div>
@@ -165,7 +171,7 @@ class DetailSpecialty extends Component {
                                 </div>
                                 {
                                     arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item) => {
-                                        return (<div className="col-12 detail-specialty-item " key={item.id}>
+                                        return (<div className="col-12 detail-specialty-item " key={item.doctorId}>
                                             <div className="row detail-specialty-item-content">
                                                 <div className="col-6 detail-specialty-item-content-left">
                                                     <ProfileDoctor

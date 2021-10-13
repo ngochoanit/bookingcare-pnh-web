@@ -70,6 +70,15 @@ const getAllSpecialty = () => {
 const getDetailSpecialtyById = (data) => {
     return axios.get(`/api/get-detail-specialty-by-id?id=${data.specialtyId}&location=${data.location}`)
 }
+const createNewClinic = (data) => {
+    return axios.post(`/api/create-new-clinic`, data)
+}
+const getAllClinic = () => {
+    return axios.get(`/api/get-all-clinic`)
+}
+const getDetailClinicById = (clinicId) => {
+    return axios.get(`/api/get-detail-clinic-by-id?id=${clinicId}`)
+}
 export const userService = {
     handleLogin,
     getAllUsersService,
@@ -89,5 +98,8 @@ export const userService = {
     postVerifytBookAppointment,
     createNewSpecialty,
     getAllSpecialty,
-    getDetailSpecialtyById
+    getDetailSpecialtyById,
+    createNewClinic,
+    getAllClinic,
+    getDetailClinicById
 }

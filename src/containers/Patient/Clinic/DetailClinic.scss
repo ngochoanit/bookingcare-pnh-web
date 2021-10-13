@@ -1,5 +1,5 @@
-.detail-specialty-wrap {
-    .detail-specialty-top{
+.detail-clinic-wrap {
+    .detail-clinic-top{
         background: #fff;
         background-position: center;
         background-repeat: no-repeat;
@@ -7,33 +7,33 @@
         h3{
             font-size:16px !important;
         }
-        .detail-specialty-top-container{
+        .detail-clinic-top-container{
             
             background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 1));
-            .detail-specialty-top-title{
+            .detail-clinic-top-title{
                 font-size: 24px;
                 font-weight:600;
                 color: #49BCE2;
                 padding-top: 10px;
             }
-            .detail-specialty-top-content{
+            .detail-clinic-top-content{
                 margin-top: 20px;
             }
         }
     }
     
-    .detail-specialty-bottom{
+    .detail-clinic-bottom{
         background-color: #EEEEEE;
         padding-top:20px;
         padding-bottom:20px;
-        .detail-specialty-bottom-container{
-            .detail-specialty-bottom-select{
+        .detail-clinic-bottom-container{
+            .detail-clinic-bottom-select{
                 width: 150px;
                 margin-bottom: 15px;
                 box-shadow: 0 1px 6px rgba(32,33,36,0.28 );
                 border-radius: 4px;
             }
-            .detail-specialty-item{
+            .detail-clinic-item{
                
                 box-shadow: 0 1px 6px rgba(32,33,36,0.28 );
                 border-radius: 8px;
@@ -41,7 +41,7 @@
                 padding-top:20px;
                 padding-bottom:20px;
                 background-color:#fff;
-                .detail-specialty-item-content-right{
+                .detail-clinic-item-content-right{
                     border-left:1px solid #ccc;
                 }
             }
