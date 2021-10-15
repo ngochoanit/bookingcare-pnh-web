@@ -79,6 +79,12 @@ const getAllClinic = () => {
 const getDetailClinicById = (clinicId) => {
     return axios.get(`/api/get-detail-clinic-by-id?id=${clinicId}`)
 }
+const getAllPatientForDoctor = (data) => {
+    return axios.get(`/api/get-list-paytient-for-doctor?doctorId=${data.doctorId}&date=${data.date}`)
+}
+const sendRemedy = (data) => {
+    return axios.post(`/api/send-remedy`, data)
+}
 export const userService = {
     handleLogin,
     getAllUsersService,
@@ -101,5 +107,7 @@ export const userService = {
     getDetailSpecialtyById,
     createNewClinic,
     getAllClinic,
-    getDetailClinicById
+    getDetailClinicById,
+    getAllPatientForDoctor,
+    sendRemedy
 }

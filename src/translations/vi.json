@@ -37,7 +37,8 @@
             "manage-handbook": "Quản Lý Cẩm Nang"
         },
         "doctor": {
-            "manage-schedule": "Quản Lý Kế Hoạch Khám Bệnh"
+            "manage-schedule": "Quản Lý Kế Hoạch Khám Bệnh",
+            "manage-patient": "Quản Lý Bệnh Nhân Khám Bệnh"
         }
     },
     "manage-user": {
