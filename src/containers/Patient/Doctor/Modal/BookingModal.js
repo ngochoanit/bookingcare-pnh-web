@@ -35,9 +35,12 @@ class BookingModal extends Component {
 
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
         this.props.fetchGender()
         registerLocale("vi", VI)
+        this.setState({
+            doctorId: this.props.doctorId
+        })
     }
     async componentDidUpdate(prevProps, prevState) {
         if (this.props.language !== prevProps.language) {
@@ -98,14 +101,16 @@ class BookingModal extends Component {
     handleConfirmBooking = async () => {
         let timeString = this.buildTimeBooking(this.props.dataTime)
         let doctorName = this.buildDoctorName(this.props.dataTime)
+
         let res = await userService.postPatientBookAppointment({
             email: this.state.email,
             phoneNumber: this.state.phoneNumber,
             fullName: this.state.fullName,
             address: this.state.address,
             reason: this.state.reason,
-            date: this.state.birthday,
-            gender: this.state.gender,
+            // date: this.state.birthday,
+            date: new Date(this.props.dataTime.date),
+            gender: this.state.gender.value,
             doctorId: this.state.doctorId,
             timeType: this.state.timeType,
             language: this.props.language,

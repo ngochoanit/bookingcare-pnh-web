@@ -1,0 +1,20 @@
+.manage-patient{
+    .manage-patient-container{
+        .manage-patient-title{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size:20px;
+            text-align: center;
+            color: #49BCE2;
+            text-transform: uppercase;
+        }
+    }
+   
+}
+div._loading_overlay_wrapper{
+    position: unset;
+    z-index: 1;
+    ._loading_overlay_overlay{
+        z-index: 1999;
+    }
+}

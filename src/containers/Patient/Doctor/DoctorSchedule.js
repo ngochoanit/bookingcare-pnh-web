@@ -25,7 +25,7 @@ class DoctorSchedule extends Component {
     async componentDidMount() {
         this.setArrDays()
     }
-    componentDidUpdate(prevProps, prevState) {
+    async componentDidUpdate(prevProps, prevState) {
         if (this.props.language !== prevProps.language) {
             this.setArrDays()
         }
@@ -103,6 +103,7 @@ class DoctorSchedule extends Component {
     render() {
         const { allDays, allAvaliableTime, dataScheduleTimeModal, isOpenBookingModal } = this.state
         const { language, doctorId } = this.props
+
         return (
             <React.Fragment>
                 <div className="doctor-schedule-container row">
